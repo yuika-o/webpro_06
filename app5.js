@@ -81,22 +81,4 @@ app.get("/rare", (req, res) => {
   res.render( 'rare', {number:num, rare:rare} );
 });
 
-app.get("/rare2", (req, res) => {
-  const results = [];
-
-  for (let i = 0; i < 10; i++) {
-    const num = Math.floor(Math.random() * 100 + 1);
-    let rare = '';
-
-    if (num <= 5) rare = 'SSR';
-    else if (num <= 20) rare = 'SR';
-    else rare = 'R';
-    results.push({ number: num, rare: rare });
-  }
-
-  console.log('10連ガチャ結果:', results);
-
-  res.render('rare', { results: results });
-});
-
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
