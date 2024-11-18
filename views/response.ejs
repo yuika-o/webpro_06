@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>アイコン選択結果</title>
+</head>
+<body>
+    <h1>あなたが選んだアイコンに対するメッセージ</h1>
+    <p><%= message %></p>
+    <hr>
+
+    <form action="/response" method="get">
+        <input type="radio" name="icon" value="1" id="morning">
+        <label for="morning">🌅</label><br>
+        
+        <input type="radio" name="icon" value="2" id="night">
+        <label for="night">🌃</label><br>
+        
+        <input type="radio" name="icon" value="3" id="sleep">
+        <label for="sleep">🛌</label><br><br>
+        
+        <input type="submit" value="送信">
+
+    </form>   
+</body>
+</html>
