@@ -97,13 +97,13 @@ r --> end1
 end1 --> more
 more --> if
 more --> end2
-
-
 ```
 
 ##　GITの管理方法
+
 Github...プログラムやデータの変更を履歴として記録するバージョン管理システム
-#####　GITHUBの設定
+
+#####　Githubの設定
 ```HOME``` 
 →```setting```
 →```Developer``` 
@@ -116,7 +116,7 @@ Github...プログラムやデータの変更を履歴として記録するバ�
 
 
 ##### Fork(複製)の作り方
-1. ターミナル上で任意のリポジトリに移動
+1. ターミナル上で任意のリポジトリ(貯蔵庫)に移動
 1. ```$ git clone```を実行
 1. リポジトリのURLを入力
 1. 各自で編集
@@ -134,5 +134,7 @@ Github...プログラムやデータの変更を履歴として記録するバ�
 
 #### url
 ```localhost:8080/public/response```
+
 ```localhost:8080/public/rare```
+
 ```localhost:8080/public/rare2```
