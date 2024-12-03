@@ -3,6 +3,7 @@ const app = express();
 
 app.set('view engine', 'ejs');
 app.use("/public", express.static(__dirname + "/public"));
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/hello1", (req, res) => {
   const message1 = "Hello world";
@@ -23,7 +24,6 @@ app.get("/luck", (req, res) => {
   let luck = '';
   if( num==1 ) luck = '大吉';
   else if( num==2 ) luck = '中吉';
-  else luck = '吉';
   console.log( 'あなたの運勢は' + luck + 'です' );
   res.render( 'luck', {number:num, luck:luck} );
 });
@@ -53,49 +53,30 @@ app.get("/janken", (req, res) => {
   res.render( 'janken', display );
 });
 
-app.get("/response", (req, res) => {
-  const icon = req.query.icon;
-  let message = '';
-  
-  if (icon === "1") {
-    message = "おはよう🌞";
-  } else if (icon === "2") {
-    message = "こんばんは🌛";
-  } else if (icon === "3") {
-    message = "zzz......";
-  } else {
-    message = "......😴";
-  }
-
-  res.render('response', { message: message });
+app.get("/get_test", (req, res) => {
+  res.json({
+    answer: 0
+  })
 });
 
-app.get("/rare", (req, res) => {
-  const num = Math.floor( Math.random() * 100 + 1 );
-  let rare = '';
-  if (num==1) rare = '＊picked up SSR＊';
-  else if(num<=5) rare = 'SSR';
-  else if(num<=20) rare = 'SR';
-  else rare = 'R';
-  console.log( '獲得したカードは' + rare + 'です' );
-  res.render( 'rare', {number:num, rare:rare} );
+app.get("/add", (req, res) => {
+  console.log("GET");
+  console.log( req.query );
+  const num1 = Number( req.query.num1 );
+  const num2 = Number( req.query.num2 );
+  console.log( num1 );
+  console.log( num2 );
+  res.json( {answer: num1+num2} );
 });
 
-app.get("/rare2", (req, res) => {
-  const results = [];
-
-  for (let i = 0; i < 10; i++) {
-    const num = Math.floor(Math.random() * 100 + 1);
-    let rare = '';
-
-    if (num <= 5) rare = 'SSR';
-    else if (num <= 20) rare = 'SR';
-    else rare = 'R';
-    results.push({ number: num, rare: rare });
-  }
- console.log('10連ガチャ結果:', results);
-
-  res.render('rare', { results: results });
+app.post("/add", (req, res) => {
+  console.log("POST");
+  console.log( req.body );
+  const num1 = Number( req.body.num1 );
+  const num2 = Number( req.body.num2 );
+  console.log( num1 );
+  console.log( num2 );
+  res.json( {answer: num1+num2} );
 });
 
 app.listen(8080, () => console.log("Example app listening on port 8080!"));
