@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>アンケート</title>
+    <script src="./qre.js" defer></script>
+    <link rel="stylesheet" href="./qre.css">
+</head>
+<body>
+    <div id="survey">
+        <h1>アンケート</h1>
+        <p>以下の質問にお答えください：</p>
+        <form id="survey-form">
+            <p>iphone派? Android派？</p>
+            <label><input type="radio" name="answer" value="iphone">iphone</label>
+            <label><input type="radio" name="answer" value="Android">Android</label>
+            <button type="button" id="submit-answer">送信</button>
+        </form>
+    </div>
+    <div id="results">
+        <h2>アンケート結果</h2>
+        <ul id="result-list"></ul>
+        <button type="button" id="refresh-results">結果を更新</button>
+    </div>
+</body>
+</html>
